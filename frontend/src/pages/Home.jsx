@@ -2,7 +2,11 @@ import { useState, useEffect } from "react"
 import axios from 'axios'
 import { Spinner } from "../components/Spinner"
 import { Link } from "react-router-dom"
+import { AiOutlineEdit } from 'react-icons/ai';
+import { BsInfoCircle } from 'react-icons/bs';
+import { MdOutlineAddBox, MdOutlineDelete } from 'react-icons/md';
 
+// import { BooksTable } from "../components/Home/BooksTable"
 
 export const Home = () => {
 
@@ -15,6 +19,7 @@ export const Home = () => {
             .then(response => {
                 setbooks(response.data.data)
                 setLoading(false)
+                console.log(books)
             })
             .catch(err => {
                 console.log(err)
@@ -33,6 +38,7 @@ export const Home = () => {
             {loading ? (
                 <Spinner />
             ) : (
+                // <BooksTable books={books}/>
                 <table className="w-full border-separate border-spacing-2">
                     <thead>
                         <tr>
